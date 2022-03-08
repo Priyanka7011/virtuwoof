@@ -1,27 +1,25 @@
 from django.db import models
 from django import forms
-from djrichtextfield.models from RichTextField
+from ckeditor.fields import RichTextField
+from django.utils import timezone
 # Create your models here.
-class User(models.Model):
+class WebUser(models.Model):
     user_email=models.EmailField(max_length=250)
     password=forms.CharField(widget=forms.PasswordInput)
     user_type=models.CharField(max_length=100)
     contact_no=models.IntegerField()
 
+    def __str__(self):
+        return self.user_email
+
 class BlogPosts(models.Model):
     blog_category=models.CharField(max_length=100)
-    blogAuthor=models.OneToMany(User)
+    blog_title=models.CharField(max_length=200)
+    blogAuthor=models.ForeignKey(WebUser,on_delete=models.CASCADE)
     blogContent=RichTextField()
-    blog_reactions=models.ManyToMany(BlogReactions)
+    blog_image=models.ImageField(upload_to="uploads/")
+    blog_date=models.DateField(default=timezone.now)
 
-class BlogReactions(models.Model):
-    reaction_type=models.CharField(max_length=100)
-    blog_post=models.ManyToMany(BlogPosts)
-    user=models.OneToMany(User)
-
-class Transaction(models.Model):
-    from_transaction=models.CharField(max_length=200)
-    to_transaction=models.CharField(max_length=200)
-    date=models.DateField()
-    mode_of_payment=models.CharField(max_length=200)
-
+    def __str__(self):
+        return self.title
+    
