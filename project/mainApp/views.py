@@ -34,4 +34,4 @@ def deletePost(request,id):
 
         
 def index(request):
-    return HttpResponse('Hello Virtuwoof')
+    return render(request,'index.html')

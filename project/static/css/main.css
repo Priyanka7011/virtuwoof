@@ -1,0 +1,54 @@
+.navbar-nav{
+    position: absolute;
+    width: 578px;
+    height: 29px;
+    left: 768px;
+    top: 20px;
+    font-family: 'Fredoka One';font-size: 22px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.navbar{
+    background-color: white;
+}
+
+.navbar-brand{
+    position: relative;
+    left: 50px;
+}
+
+body{
+    background-color: white;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #FAABA7 !important;
+    border: none;
+    border-radius: 12px;
+    height: 50px;
+    width: 160px;
+    filter: drop-shadow(0px 4px 4px gray);
+}
+
+.card{
+    position: relative;
+    top: 90px;
+    left: 50px;
+    border: none;
+}
+
+.card-title{
+    color:#FAABA7;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.4vw;
+    line-height: 4vw;
+}
+
+.card-text{
+    font-family: 'Fredoka One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+}
