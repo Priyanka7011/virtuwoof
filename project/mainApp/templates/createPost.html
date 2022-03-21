@@ -1,0 +1,54 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <style>
+            .wrapper{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            body{
+                font-family: 'Lato';
+                font-size:12px;
+                padding-left:20px;
+            }
+            .heading{
+                font-family:'Fredoka One';
+                font-size:29px;
+            }
+            .customTextField{
+                width:300px;
+                padding:8px;
+                border-radius: 8px;
+                border:1px solid rgb(194, 193, 193);
+            }
+            .form_wrapper{
+               display: flex;
+               justify-content: center;
+               flex-direction: column;
+            }
+            .form-submit{
+                border:none;
+                background-color: #FAABA7;
+                border-radius:8px;
+                padding:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+             <h1 class="heading"> Create Post</h1>
+            <form method="POST" action="/create" enctype="multipart/form-data">{% csrf_token %}
+                <div class="form_wrapper">
+                    {{form.media}}
+                    {{form.as_p}}
+       
+                </div>
+                <button class="form-submit" type="submit">Save the post</button>
+            </form>
+        </div>
+    </body>
+</html>
