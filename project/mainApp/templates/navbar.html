@@ -2,22 +2,36 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+    
     <link rel="icon" type="images" href="{% static '/images/logo.svg' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="#">
       <img src = "{% static '/images/logo.svg' %}" alt="Logo" height="90vw" width="90vw" />
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Menu
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Services</a>
+        <a class="dropdown-item" href="#">Posts</a>
+        <a class="dropdown-item" href="#">Helpline</a>
+        <a class="dropdown-item" href="#">About Us</a>
+      </div>
+    </div>
+
+    
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a style="color:black" class="nav-item nav-link " href="#">Services <span class="sr-only">(current)</span></a>
-        <a style="color:black" class="nav-item nav-link" href="#">Posts</a>
-        <a style="color:black" class="nav-item nav-link" href="#">Helpline</a>
-        <a style="color:black" class="nav-item nav-link " href="#">About Us</a>
-      </div>
+        <li><a style="color:black" class="nav-item nav-link " href="#">Services <span class="sr-only">(current)</span></a></li>
+        <li><a style="color:black" class="nav-item nav-link" href="#">Posts</a></li>
+        <li><a style="color:black" class="nav-item nav-link" href="#">Helpline</a></li>
+        <li><a style="color:black" class="nav-item nav-link " href="#">About Us</a></li>
+    </div>
+
     </div>
   </nav>
