@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'js/app.js' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
@@ -17,7 +19,7 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="card" style="width: 55%;">
+    <div style="width: 70%;padding: 5%;float : left">
         <div class="card-body">
           <h5 class="card-title">The fun forum for pets!</h5>
           <p class="card-text">Get ready to discover every resource under one single roof at Virtuwoof. You can get along with 
@@ -29,12 +31,9 @@
         </div>
       </div>
 
-      <div class="card" style="width: 35%;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
+      
+      <img style="float: left;width: 30%;" src="{% static '/images/main-image.png' %}" alt="Person Hugging Doggy">
+      <img src="{% static '/images/cloud_low.svg' %}" alt="Clouds">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
