@@ -37,6 +37,12 @@
                 border: 1px solid rgb(194, 193, 193);
                 margin-right: 10px;
             }
+            .image img{
+                height:60px;
+                width:60px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
             .loc{
                 font-family: 'Lato';
                 font-size: 12px;
@@ -56,6 +62,16 @@
                 padding:0px 20px;
                 font-size:12px;
             }
+            .cab{
+                box-shadow: 1px 1px 65px -10px rgba(0,0,0,0.75);
+                cursor:pointer;
+                margin-top:-50px;
+                margin-left:10px;
+                height:40px;
+                width:40px;
+                border:none;
+                border-radius: 50% ;
+            }
         </style>
     </head>
     <body>
@@ -65,16 +81,27 @@
                
               
                     <div class="header">
-                        <div class="image"></div>
+                        <div class="image">
+                            <img src="{{post.blogAuthor.profile.image.url}}">
+                        </div>
+                        
                         <div>
                             <h1 class="user">{{post.blogAuthor}}</h1>
                             <p class="loc">Splitsville Dutchland</p>
                         </div>
+
                         
                     </div>
                     <hr>
                     <div class="image_box">
                         <img class="post_image"  src="{{post.blog_image.url}}">
+                        <form action='/action' method="POST" >
+                            {%csrf_token%}
+                            <input name="action_btn" value={{post.blog_category}}  type="hidden">
+                            <input name="post_id" value={{post.id}}  type="hidden">
+                            <button class="cab" id={{post.blog_category}}>{{post.blog_category}}</button>
+                        </form>
+                      
                     </div>
                     <hr>
                     <div>

@@ -7,4 +7,9 @@ urlpatterns=[
     path('delete',views.deletePost,name='deletePost'),
     path('geoapi',views.geoapify,name='geoapi'),
     path('new',views.newPost,name='newPost'),
+    path('donate',views.donate,name='donate'),
+    path('action',views.action,name='action'),
+    path('allactions',views.allActionsList,name='allactions'),
+    
+    path('chatbot',views.chat,name='chat')
 ]

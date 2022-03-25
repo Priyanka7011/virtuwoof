@@ -1,0 +1,81 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <style>
+            .wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 80px;
+            }
+           .search_card{
+                    width:100%;
+                    padding:10px;
+                    border:1px solid rgb(194, 193, 193);
+                    border-radius: 4px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 50px;
+                    box-shadow: 3px 3px 17px -1px rgba(0,0,0,0.75);
+
+           }
+           .search_card h2{
+               font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 20px;
+           }
+           .search_card p{
+            font-family: 'Lato';
+            font-size:12px;
+
+           }
+           .apptbtn{
+                padding:10px;
+                width:200px;
+                border:none;
+                background-color:#B2C0DB; 
+                color:white;
+                border-radius: 5px;
+                font-family: 'Fredoka One';
+                cursor:pointer;
+                margin-left:20px;
+            }
+            h1{
+               font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+           
+
+                <div class="search_result">
+                    {%for res in result%}
+                       <div class="search_card">
+                         <div>
+                            <h2>{{res.name}}</h2>
+                            <p>{{res.address_line1}}</p>
+                            <p>{{res.address_line2}}</p>
+                         </div>
+                         <button class="apptbtn">
+                            CHECK IN MAP
+                         </button>
+                       </div>
+                    {%empty%}
+                       <h1>Sorry ! No results Found :(</h1>
+                    {%endfor%}
+                </div>
+            
+        </div>
+    </body>
+</html>
