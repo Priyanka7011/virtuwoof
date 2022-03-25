@@ -22,7 +22,7 @@
     <div class="media-left">
       <figure class="image is-64x64">
           {% if message.user.profile.image.url%}
-            <img src="{{ message.user.profile.picture.url }}" alt="Placeholder image">
+          <img style="border-radius: 50%;height:60px;width:60px;border:1px solid grey"src="{{message.user.profile.image.url}}">
           {% else %}
             <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-flat-icon-vector-contact-symbol-illustration-184752213.jpg" alt="Placeholder image">
           {% endif %}

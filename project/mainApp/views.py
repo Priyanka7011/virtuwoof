@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import BlogForm,SearchForm
-from .models import BlogPosts,postActions
+from .models import BlogPosts,postActions,Helpline
 import requests
 
 
@@ -24,7 +24,7 @@ def newPost(request):
     return render(request,"createPost.html",{'form':form})
 def displayPosts(request):
     posts=BlogPosts.objects.all()
-    
+
     print(posts)
     return render(request,"Allposts.html",{'posts':posts})
 
@@ -166,3 +166,12 @@ def index(request):
         
 def chat(request):
     return render(request,'chatbot.html')
+
+def helpline(request):
+    helplines=Helpline.objects.all()
+    print(helplines)
+
+    return render(request,'helpline.html',{"helplines":helplines})
+
+def checkout(request):
+     return render(request,'stripe.html')

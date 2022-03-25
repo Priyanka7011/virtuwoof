@@ -40,3 +40,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Helpline(models.Model):
+    state=models.CharField(max_length=100)
+    name=models.CharField(max_length=500)
+    address=models.CharField(max_length=1000)
+    helpline_no=models.CharField(max_length=1000)
+    

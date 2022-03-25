@@ -10,6 +10,7 @@ urlpatterns=[
     path('donate',views.donate,name='donate'),
     path('action',views.action,name='action'),
     path('allactions',views.allActionsList,name='allactions'),
-    
-    path('chatbot',views.chat,name='chat')
+    path('helpline',views.helpline,name='helpline'),
+    path('chatbot',views.chat,name='chat'),
+    path('checkout',views.checkout)
 ]

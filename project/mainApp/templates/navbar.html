@@ -1,37 +1,30 @@
 {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" >
     <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
     
     <link rel="icon" type="images" href="{% static '/images/logo.svg' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">
-      <img src = "{% static '/images/logo.svg' %}" alt="Logo" height="90vw" width="90vw" />
-    </a>
-    
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Menu
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Services</a>
-        <a class="dropdown-item" href="#">Posts</a>
-        <a class="dropdown-item" href="#">Helpline</a>
-        <a class="dropdown-item" href="#">About Us</a>
-      </div>
-    </div>
+<nav class="navbar navbar-expand-md ">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#"><img src = "{% static '/images/logo.svg' %}" alt="Logo" height="90vw" width="90vw" /></a>
 
-    
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <li><a style="color:black" class="nav-item nav-link " href="#">Services <span class="sr-only">(current)</span></a></li>
-        <li><a style="color:black" class="nav-item nav-link" href="#">Posts</a></li>
-        <li><a style="color:black" class="nav-item nav-link" href="#">Helpline</a></li>
-        <li><a style="color:black" class="nav-item nav-link " href="#">About Us</a></li>
-    </div>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    </div>
-  </nav>
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto" style="font-family:Fredoka One;font-size:20px">
+      <li><a style="color:black" class="nav-item nav-link " href="#">Services <span class="sr-only">(current)</span></a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'geoapi'%}">Search</a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'displayPost'%}">Posts</a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'helpline'%}">Helpline</a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'donate'%}">Donate</a></li>
+      <li><a style="color:black" class="nav-item nav-link " href="#">About Us</a></li>
+    </ul>
+  </div>
+</nav>
