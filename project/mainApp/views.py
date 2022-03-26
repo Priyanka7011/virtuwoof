@@ -55,10 +55,6 @@ def geoapify(request):
 
     
 
-        
-
-
-
     
 
     return HttpResponse("success")
@@ -66,3 +62,6 @@ def geoapify(request):
         
 def index(request):
     return render(request,'index.html')
+
+def services(request):
+    return render(request,'services.html')

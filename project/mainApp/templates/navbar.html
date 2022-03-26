@@ -17,7 +17,7 @@
         Menu
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Services</a>
+        <a class="dropdown-item" href="{% url 'services' %}">Services</a>
         <a class="dropdown-item" href="#">Posts</a>
         <a class="dropdown-item" href="#">Helpline</a>
         <a class="dropdown-item" href="#">About Us</a>
@@ -27,7 +27,7 @@
     
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <li><a style="color:black" class="nav-item nav-link " href="#">Services <span class="sr-only">(current)</span></a></li>
+        <li><a style="color:black" class="nav-item nav-link " href="{% url 'services' %}">Services <span class="sr-only">(current)</span></a></li>
         <li><a style="color:black" class="nav-item nav-link" href="#">Posts</a></li>
         <li><a style="color:black" class="nav-item nav-link" href="#">Helpline</a></li>
         <li><a style="color:black" class="nav-item nav-link " href="#">About Us</a></li>
