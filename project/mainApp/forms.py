@@ -15,4 +15,23 @@ class BlogForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'customTextField'
         
 
+class SearchForm(forms.Form):
+
+    FILTER_CHOICES = (
         
+        ('pet.veterinary', 'Veterinary'),
+        ('pet.shop', 'Pet Shops'),
+        ('pet.service', 'Pet Services'),
+        ('pet.dog_park', 'Pet Parks'),
+
+    )
+    address = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Enter your address"}))
+    city = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"city"}))
+    state= forms.CharField(widget=forms.TextInput(attrs={"placeholder":"state"}))
+    filter_by = forms.ChoiceField(choices = FILTER_CHOICES)
+
+    def __init__(self,*args,**kwargs):
+        super(SearchForm,self).__init__(*args,**kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'inputBox'
+            self.fields[field].label = ""

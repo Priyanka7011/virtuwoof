@@ -1,0 +1,137 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <style>
+            .wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 30px;
+            }
+           .search_card{
+                    width:100%;
+                    padding:10px;
+                    border:1px solid rgb(194, 193, 193);
+                    border-radius: 4px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 50px;
+                    box-shadow: 3px 3px 17px -1px rgba(0,0,0,0.75);
+
+           }
+           .search_card h2{
+               font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 20px;
+           }
+           .search_card p{
+            font-family: 'Lato';
+            font-size:12px;
+
+           }
+           .apptbtn{
+                padding:10px;
+                width:200px;
+                border:none;
+                background-color:#B2C0DB; 
+                color:white;
+                border-radius: 5px;
+                font-family: 'Fredoka One';
+                cursor:pointer;
+                margin-left:20px;
+            }
+            h1{
+               font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 20px;
+            }
+            .text{
+                font-family: 'Lato';
+                font-size:14px;
+                width:70%;
+            }
+            .partition{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: row;
+            }
+            .donationForm{
+                width:45%;
+                display: flex;
+                flex-direction: column;
+            }
+            .image {
+                width:55%;
+            }
+            .image img{
+                object-fit: cover;
+                height:400px;
+            }
+            .customTextField{
+                width:300px;
+                padding:8px;
+                border-radius: 8px;
+                border:1px solid rgb(194, 193, 193);
+                margin-bottom: 20px;
+                font-size: 12px;
+            }
+            .amtBtn{
+                width:66px;
+                padding:6px;
+                border-radius:4px;
+                border:1px solid rgb(194, 193, 193)
+            }
+        </style>
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <hr>
+        <div class="wrapper">
+           <h1 style="font-family:Fredoka One;color:#FAABA7;font-size: 50px;">DONATE</h1>
+
+           <p class="text">
+            Donating to us will help us make sure this money reaches shelters that are in need, most shelters work solely dependant on
+            voluntary contributions and on not having enough support, struggle to vater good care to shelter animals. Your tiny donation will go a long way 
+            in making life of a shelter animal a lot more comfortable and happier
+           </p>
+
+           <div class="partition">
+               <div class="donationForm">
+                    <input class="customTextField" placeholder="Your Name">
+                    <input class="customTextField" placeholder="NGO/individual whom you want to donate">
+                    <div>
+                        <button class="amtBtn">₹10</button>
+                        <button  class="amtBtn">₹50</button>
+                        <button  class="amtBtn">₹100</button>
+                        <input style="width:90px !important" class="customTextField"placeholder="other">
+                    </div>
+                    <button class="amtBtn" style="background-color:#69D9AA;color:white !important;width:100px;font-family: 'Fredoka One';"> <a style="color:white;text-decoration: none;" href="https://buy.stripe.com/test_cN27w9fG7cEn7FCaEE">DONATE!</a></button>
+               </div>
+               <div class="image">
+                    <img src="{% static '/images/cutepuppy.png' %}">
+               </div>
+           </div>
+
+               
+            
+            
+        </div>
+    </body>
+</html>

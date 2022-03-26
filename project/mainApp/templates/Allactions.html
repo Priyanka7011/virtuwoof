@@ -1,0 +1,92 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <style>
+            .allactivity{
+                width:50%;
+            }
+           .wrapper{
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-direction: column;
+           }
+           .activity{
+               display: flex;
+               flex-direction: row;
+               justify-content: flex-start;
+               align-items: center;
+               margin-bottom: 10px;
+           }
+           h1{
+            font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 29px;
+           }
+           p{
+              font-family: 'Lato';
+               
+              font-size: 14px;
+           }
+           .profile-img{
+               height:60px;
+               width:60px;
+               border-radius: 50%;
+               border:1px solid gainsboro;
+               margin-right: 7px;
+           }
+        </style>
+    </head>
+    <body>
+        {%include 'navbar.html'%}
+        <hr>
+        <div class="wrapper">
+            <h1>Activity</h1>
+                <div class="allactivity">
+                    {%for action in actions%}
+                 
+                  {%if action.action_type == 'Donation' %}
+                        <div class="activity">
+                            <img class="profile-img" src="{{action.actor.profile.image.url}}">
+                            <p>
+                                <a href="{%url 'directs' action.actor.username %}" style="font-weight: bold;margin-right:10px"> @{{action.actor.username}} </a>
+                            </p>
+                            <p>donated for your post titled </p> <p style="font-weight:600;margin-left: 5px;margin-right:5px">{{action.post.blog_title}}</p> <p>on {{action.post.blog_date}} </p>
+                            
+                        </div>
+                  {%elif action.action_type == 'lost' %}
+                    <div class="activity">
+                        <img class="profile-img" src="{{action.actor.profile.image.url}}">
+                        <p>
+                            <a href="{%url 'directs' action.actor.username %}" style="font-weight: bold;margin-right:10px"> @{{action.actor.username}} </a>
+                        </p>
+                        <p>has informaion about your lost pet on post titled </p><p style="font-weight:600;margin-left: 5px;margin-right:5px">{{action.post.blog_title}}</p> <p> on {{action.post.blog_date}} </p>
+                    </div>
+                    {%elif action.action_type == 'adopt' %}
+                    <div class="activity">
+                        <img src="{{action.actor.username.profile.image.url}}">
+                        <p>
+                            <a href="{%url 'directs' action.actor.username %}" style="font-weight: bold;margin-right:10px"> @{{action.actor.username}} </a>
+                        </p>
+                        <p>has shown interest in adoption on post</p><p style="font-weight:600;margin-left: 5px;margin-right:5px">{{action.post.blog_title}}</p> <p> on {{action.post.blog_date}} </p>
+                    </div>
+                  {%endif%}
+                 
+                {%endfor%}
+                </div>
+            
+        </div>
+    </body>
+</html>

@@ -1,15 +1,28 @@
 {%load static%}
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             .wrapper{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                margin-top: 20px;
                
             }
             .post{
@@ -37,44 +50,98 @@
                 border: 1px solid rgb(194, 193, 193);
                 margin-right: 10px;
             }
+            .image img{
+                height:100%;
+                width:100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
             .loc{
                 font-family: 'Lato';
                 font-size: 12px;
                 font-weight: 300;
-                margin-top:-15px;
+                margin-top:-1px;
             }
             hr{
                margin-block-end: 0em !important;
             }
-            .post_image{
+            .image_box{
                 height:350px;
                 width:400px;
+            }
+            .post_image{
+                height:100%;
+                width:100%;
                 object-fit: cover;
+                
             }
             .post_text p{
                 font-family: 'Lato';
                 padding:0px 20px;
                 font-size:12px;
             }
+            .cab{
+                box-shadow: 1px 1px 65px -10px rgba(0,0,0,0.75);
+                cursor:pointer;
+                margin-top:-50px;
+                margin-left:10px;
+                height:40px;
+                width:40px;
+                border:none;
+                border-radius: 50% ;
+                color:white;
+    
+                background-color:#FAABA7; ;
+            }
         </style>
     </head>
     <body>
+        {% include 'navbar.html' %}
+        <hr>
         <div class="wrapper">
             {% for post in posts%}
             <div class="post">
                
               
                     <div class="header">
-                        <div class="image"></div>
+                        <div class="image">
+                            <img src="{{post.blogAuthor.profile.image.url}}">
+                        </div>
+                        
                         <div>
                             <h1 class="user">{{post.blogAuthor}}</h1>
                             <p class="loc">Splitsville Dutchland</p>
+                            
+                            </p>
                         </div>
+
                         
                     </div>
                     <hr>
                     <div class="image_box">
-                        <img class="post_image"  src="{{post.blog_image.url}}">
+                        <div>
+                            <img class="post_image"  src="{{post.blog_image.url}}">
+                        </div>
+                        <form action='/action' method="POST" >
+                            {%csrf_token%}
+
+                            <input name="action_btn" value={{post.blog_category}}  type="hidden">
+                            <input name="post_id" value={{post.id}}  type="hidden">
+                            {%if post.blog_category == 'Donation' %}
+                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                <i class="fa fa-money" style="font-size:20px"></i>
+                            </button>
+                            {%elif post.blog_category == 'lost' %}
+                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                <i class="fa fa-frown-o" style="font-size:20px"></i>
+                            </button>
+                            {%elif post.blog_category == 'adopt' %}
+                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                <i class="fa fa-heart" style="font-size:20px"></i>
+                            </button>
+                            {%endif%}
+                        </form>
+                      
                     </div>
                     <hr>
                     <div>
@@ -84,5 +151,12 @@
             </div>
             {%endfor%}      
         </div>
+        <script>
+        $(function () {
+  $('[data-toggle="popover-hover"]').popover({
+    trigger: 'hover',
+  })
+})
+        </script>
     </body>
 </html>

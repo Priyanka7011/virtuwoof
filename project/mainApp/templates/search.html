@@ -1,0 +1,149 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <style>
+            .wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 40px;
+            }
+            .searchbar{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                border:1px solid rgb(194, 193, 193);;
+               border-radius: 5px;
+                margin-bottom: 40px;
+                
+            }
+            .inputBox{
+                padding:8px;
+                font-size:12px;
+                border:none;
+                border-right:1px solid rgb(194, 193, 193);
+
+            }
+            .submitFormBtn{
+                padding:10px;
+                width:100px;
+                border:none;
+                background-color: #FAABA7;
+                color:white;
+                font-weight: bold;
+                font-family: 'Lato';
+                cursor:pointer;
+            }
+            .search_card{
+                    width:100%;
+                    padding:10px;
+                    border:1px solid rgb(194, 193, 193);
+                    border-radius: 4px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 50px;
+                    box-shadow: 3px 3px 17px -1px rgba(0,0,0,0.75);
+
+           }
+           .search_card h2{
+               font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 20px;
+           }
+           .search_card p{
+            font-family: 'Lato';
+            font-size:12px;
+
+           }
+           .apptbtn{
+                padding:10px;
+                width:200px;
+                border:none;
+                background-color:#B2C0DB; 
+                color:white;
+                border-radius: 5px;
+                font-family: 'Fredoka One';
+                cursor:pointer;
+                margin-left:20px;
+            }
+            h1{
+               font-family: 'Fredoka One';
+               color:#B2C0DB;
+               font-size: bold;
+               font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        {%include 'navbar.html'%}
+        <hr>
+        <div class="wrapper">
+           
+                <!-- <form method="POST" action="/geoapi">
+                    {%csrf_token%}
+                    <input name="address" placeholder="enter address" >
+                    <input name="city" placeholder="enter city" >
+                    <input name="state" placeholder="enter state" >
+                    <select name="category">
+                        <option>Veterinary</option>
+                        <option>Pet Shops</option>
+                        <option>Pet Services</option>
+                        <option>Pet parks</option>
+                    </select>
+                    <button>submit</button>
+
+                </form> -->
+                <form method="post" class='searchbar' action="/geoapi">
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="submitFormBtn btn btn-primary">Submit</button>
+                </form>
+                {%if isPresent %}
+                
+           
+
+                    <div class="search_result">
+                        {%for res in result%}
+                           <div class="search_card">
+                             <div>
+                                <h2>{{res.name}}</h2>
+                                <p>{{res.address_line1}}</p>
+                                <p>{{res.address_line2}}</p>
+                             </div>
+                             <button class="apptbtn">
+                                CHECK IN MAP
+                             </button>
+                           </div>
+                        {%empty%}
+                           <h1>Sorry ! No results Found :(</h1>
+                        {%endfor%}
+                    </div>
+                
+            
+                
+                
+
+                {%endif%}
+
+               
+            
+        </div>
+    </body>
+</html>
