@@ -17,7 +17,7 @@ def createPost(request):
             post.blogAuthor=user
             post.save()
         
-    return HttpResponse("hello")
+    return HttpResponse("success")
 
 def newPost(request):
     form=BlogForm()
@@ -91,7 +91,7 @@ def donate(request):
     return render(request,"donation.html")
 def geoapify(request):
 
-    if request.method=="POST":
+     if request.method=="POST":
         form = SearchForm(request.POST)
         if form.is_valid():
             address=form.cleaned_data['address']
@@ -138,21 +138,16 @@ def geoapify(request):
 
         isPresent=True
 
-
-
             
 
 
 
         form=SearchForm()
 
-        return render(request,"search.html",{"form":form,"result":result,"lon":longitude,"lat":latitude,"isPresent":isPresent})
+        return render(request,"search.html",{"form":form,"result":result,"isPresent":isPresent})
+     form=SearchForm()
     
-    form=SearchForm()
-    
-    return render(request,"search.html",{"form":form})
-    
-
+     return render(request,"search.html",{"form":form})
     
 
 def search(request):
@@ -163,6 +158,9 @@ def search(request):
         
 def index(request):
     return render(request,'index.html')
+
+def services(request):
+    return render(request,'services.html')
 
 
         
@@ -185,3 +183,4 @@ def map(request,lon,lat):
      print(lon,lat)
      url="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=700&height=400&center=lonlat:"+lon+","+lat+"&zoom=12&marker=lonlat:"+lon+","+lat+";color:%23ff0000;size:medium;text:1&apiKey=92ef0d6ee2ce46ceb9ae863be2aa7774"
      return render(request,'map.html',{"lon":lon,"lat":lat,"url":url})
+
