@@ -138,13 +138,15 @@ def geoapify(request):
 
         isPresent=True
 
+
+
             
 
 
 
         form=SearchForm()
 
-        return render(request,"search.html",{"form":form,"result":result,"isPresent":isPresent})
+        return render(request,"search.html",{"form":form,"result":result,"lon":longitude,"lat":latitude,"isPresent":isPresent})
     
     form=SearchForm()
     
@@ -175,3 +177,11 @@ def helpline(request):
 
 def checkout(request):
      return render(request,'stripe.html')
+
+
+def map(request,lon,lat):
+     #longitude=request.GET.get("lon")
+     #latitude=request.GET.get('lat')
+     print(lon,lat)
+     url="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=700&height=400&center=lonlat:"+lon+","+lat+"&zoom=12&marker=lonlat:"+lon+","+lat+";color:%23ff0000;size:medium;text:1&apiKey=92ef0d6ee2ce46ceb9ae863be2aa7774"
+     return render(request,'map.html',{"lon":lon,"lat":lat,"url":url})

@@ -127,8 +127,8 @@
                                 <p>{{res.address_line1}}</p>
                                 <p>{{res.address_line2}}</p>
                              </div>
-                             <button class="apptbtn">
-                                CHECK IN MAP
+                             <button class="apptbtn" >
+                                <a style="text-decoration:none;color:white" href="{%url 'map' res.lon res.lat%}">CHECK IN MAP</a>
                              </button>
                            </div>
                         {%empty%}
