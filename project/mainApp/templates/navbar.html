@@ -1,12 +1,13 @@
 {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" >
     <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
     
     <link rel="icon" type="images" href="{% static '/images/logo.svg' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="#">
       <img src = "{% static '/images/logo.svg' %}" alt="Logo" height="90vw" width="90vw" />
@@ -32,6 +33,26 @@
         <li><a style="color:black" class="nav-item nav-link" href="#">Helpline</a></li>
         <li><a style="color:black" class="nav-item nav-link " href="#">About Us</a></li>
     </div>
+=======
+<nav class="navbar navbar-expand-md ">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#"><img src = "{% static '/images/logo.svg' %}" alt="Logo" height="90vw" width="90vw" /></a>
 
-    </div>
-  </nav>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+>>>>>>> 3c799124351d82861002ca7dfff15d199337d977
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto" style="font-family:Fredoka One;font-size:20px">
+      <li><a style="color:black" class="nav-item nav-link " href="#">Services <span class="sr-only">(current)</span></a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'geoapi'%}">Search</a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'displayPost'%}">Posts</a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'helpline'%}">Helpline</a></li>
+      <li><a style="color:black" class="nav-item nav-link" href="{%url 'donate'%}">Donate</a></li>
+      <li><a style="color:black" class="nav-item nav-link " href="#">About Us</a></li>
+    </ul>
+  </div>
+</nav>
