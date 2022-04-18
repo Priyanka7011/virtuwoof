@@ -13,5 +13,6 @@ urlpatterns=[
     path('allactions',views.allActionsList,name='allactions'),
     path('helpline',views.helpline,name='helpline'),
     path('chatbot',views.chat,name='chat'),
-    path('checkout',views.checkout)
+    path('checkout',views.checkout),
+    path('map/<str:lon>/<str:lat>',views.map,name='map')
 ]

@@ -110,7 +110,7 @@
                         
                         <div>
                             <h1 class="user">{{post.blogAuthor}}</h1>
-                            <p class="loc">Splitsville Dutchland</p>
+                            <p class="loc">Guwahati , Assam</p>
                             
                             </p>
                         </div>
@@ -128,15 +128,15 @@
                             <input name="action_btn" value={{post.blog_category}}  type="hidden">
                             <input name="post_id" value={{post.id}}  type="hidden">
                             {%if post.blog_category == 'Donation' %}
-                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content=" If you are willing to donate click on this button.">
                                 <i class="fa fa-money" style="font-size:20px"></i>
                             </button>
                             {%elif post.blog_category == 'lost' %}
-                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="If you have informaion about the lost pet.Please help the owner">
                                 <i class="fa fa-frown-o" style="font-size:20px"></i>
                             </button>
                             {%elif post.blog_category == 'adopt' %}
-                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                            <button class="cab" id={{post.blog_category}} data-toggle="popover-hover" data-placement="right" data-content="If you want to adopt this pet .Click on this button">
                                 <i class="fa fa-heart" style="font-size:20px"></i>
                             </button>
                             {%endif%}

@@ -22,15 +22,15 @@
                 margin-top: 40px;
             }
             .searchbar{
-                display: flex;
+                    display: flex;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
                 border:1px solid rgb(194, 193, 193);;
-               border-radius: 5px;
+                border-radius: 5px;
                 margin-bottom: 40px;
-                
-            }
+        
+}
             .inputBox{
                 padding:8px;
                 font-size:12px;
@@ -127,8 +127,8 @@
                                 <p>{{res.address_line1}}</p>
                                 <p>{{res.address_line2}}</p>
                              </div>
-                             <button class="apptbtn">
-                                CHECK IN MAP
+                             <button class="apptbtn" >
+                                <a style="text-decoration:none;color:white" href="{%url 'map' res.lon res.lat%}">CHECK IN MAP</a>
                              </button>
                            </div>
                         {%empty%}
