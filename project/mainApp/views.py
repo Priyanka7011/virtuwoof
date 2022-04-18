@@ -7,6 +7,9 @@ from .models import BlogPosts,postActions,Helpline
 import requests
 
 
+def services(request):
+    return render(request,'services.html')
+
 def createPost(request):
     user=request.user
     if request.POST:
@@ -91,8 +94,6 @@ def donate(request):
     return render(request,"donation.html")
 def geoapify(request):
 
-<<<<<<< HEAD
-=======
     if request.method=="POST":
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -151,7 +152,6 @@ def geoapify(request):
     form=SearchForm()
     
     return render(request,"search.html",{"form":form})
->>>>>>> 3c799124351d82861002ca7dfff15d199337d977
     
 
     
@@ -165,10 +165,6 @@ def search(request):
 def index(request):
     return render(request,'index.html')
 
-<<<<<<< HEAD
-def services(request):
-    return render(request,'services.html')
-=======
 
         
 def chat(request):
@@ -182,4 +178,3 @@ def helpline(request):
 
 def checkout(request):
      return render(request,'stripe.html')
->>>>>>> 3c799124351d82861002ca7dfff15d199337d977
